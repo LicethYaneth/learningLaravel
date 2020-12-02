@@ -1,25 +1,10 @@
 <?php
 
-use App\Http\Controllers\UserController;
-namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Route;
-
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function(){
+    echo "<a href='" .route('Contactanos')."'> Comunicarme</a><br>";
+    return "MindGround";
 });
 
-Route::get('user/{id}',[UserController::class,'show']);
-
-Route::get('/',[UserController::class,'saluda']);
+Route::get('contactanos',function(){
+    return "<a href='https://api.whatsapp.com/send/?phone=573017105792&text&app_absent=0'>Whatsapp</a>";
+})->name('Contactanos');
